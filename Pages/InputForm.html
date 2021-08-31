@@ -15,49 +15,49 @@
             <h1>HTML 5 INPUT FORM FIELDS</h1>
         </header>
         <div>
-            <label for="text">Text input type for name: </label>
+            <label for="text">Name  </label>
             <input type="text" name="text" id="text">
             <error-output class="text-error" for="text"></error-output>
         </div>
 
         <div>
-            <label for="pwd">Password input type: </label>
+            <label for="pwd">Password  </label>
             <input type="password" name="pwd" id="pwd">
             <error-output class="text-error" for="pwd"></error-output>
         </div>
 
         <div>
-            <label for="email">Email input type: </label>
+            <label for="email">Email  </label>
             <input type="email" name="email" id="email">
             <error-output class="text-error" for="email"></error-output>
         </div>
 
         <div>
-            <label for="url">Url input type: </label>
+            <label for="url">Url  </label>
             <input type="url" name="url" id="url">
             <error-output class="text-error" for="url"></error-output>
         </div>
 
         <div>
-            <label for="number">Number input type: </label>
+            <label for="number">Number  </label>
             <input type="number" name="number" id="number">
             <error-output class="text-error" for="number"></error-output>
         </div>
 
         <div>
-            <label for="tel">tel input type: </label>
+            <label for="tel">Tel  </label>
             <input type="tel" name="tel" id="tel">
             <error-output class="text-error" for="tel"></error-output>
         </div>
 
         <div>
-            <label for="search">search input type: </label>
+            <label for="search">search  </label>
             <input type="search" name="search" id="search">
             <error-output class="text-error" for="search"></error-output>
         </div>
 
         <div class="nativeDateTimePicker">
-            <label for="party"> Choose a date time </label>
+            <label for="party"> Choose  Date and Time </label>
             <input type="datetime-local" name="party" id="bday">
             <span class="validity"></span>
         </div>
@@ -81,14 +81,27 @@
             else {
                 textError.textContent = "Name is Incorrect"
             }
-        })
+        });
+
+        // validate email-id
+        const email = document.querySelector('#email')
+        const emailError = document.querySelector('.email-error')
+        email.addEventListener('input', function () {
+            let emailRegex = RegExp("^[0-9a-zA-Z]+([.,+,_,-]{1}[0-9a-zA-Z]+)*@[0-9a-zA-Z]+[.]{1}[a-zA-Z]{2,3}([.]{1}[a-zA-Z]{2})?")
+            if (emailRegex.test(email.value)) {
+                emailError.textContent = ""
+            }
+            else {
+                emailError.textContent = "Name is Incorrect"
+            }
+        });
 
         const salary = document.querySelector('#salary')
         const output = document.querySelector('.salary-output')
         output.textContent = salary.value;
         salary.addEventListener('input', function () {
             output.textContent = salary.value
-        })
+        });
     </script>
 </body>
 
